@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - NOT-001-RabbitMQ-Consumer-Setup-v2
 
 jobs:
   build-and-push:
