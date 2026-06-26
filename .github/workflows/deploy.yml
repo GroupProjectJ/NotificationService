@@ -37,6 +37,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/notification-service:latest .
 
-      # 6. Push Docker image
+      # 6. Push Docker image for
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/notification-service:latest
