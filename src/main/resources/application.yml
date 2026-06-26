@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: notification-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8080
+
+notification:
+  rabbit:
+    exchange: notification.direct.exchange
+    routing-key: notification.created
