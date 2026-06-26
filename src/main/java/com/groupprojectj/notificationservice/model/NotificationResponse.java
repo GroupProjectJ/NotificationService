@@ -3,6 +3,7 @@ package com.groupprojectj.notificationservice.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+// checkout
 @Data
 @AllArgsConstructor
 public class NotificationResponse {
