@@ -1,6 +1,6 @@
 package com.groupprojectj.notificationservice.service;
 
-import com.groupprojectj.notificationservice.model.NotificationRequest;
+import com.groupprojectj.notificationservice.DTO.NotificationEvent;
 import com.groupprojectj.notificationservice.model.NotificationResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -16,16 +16,16 @@ public class NotificationService {
     private final String routingKey;
 
     public NotificationService(RabbitTemplate rabbitTemplate,
-                               @Value("${notification.rabbit.exchange:notification.direct.exchange}") String exchangeName,
-                               @Value("${notification.rabbit.routing-key:notification.created}") String routingKey) {
+            @Value("${notification.rabbit.exchange:notification.direct.exchange}") String exchangeName,
+            @Value("${notification.rabbit.routing-key:notification.created}") String routingKey) {
         this.rabbitTemplate = rabbitTemplate;
         this.exchangeName = exchangeName;
         this.routingKey = routingKey;
     }
 
-    public NotificationResponse send(NotificationRequest request) {
-        log.info("Sending notification to {} with subject {}", request.getRecipient(), request.getSubject());
-        rabbitTemplate.convertAndSend(exchangeName, routingKey, request);
+    public NotificationResponse send(NotificationEvent event) {
+        log.info("Publishing order event {} for product {}", event.getOrderId(), event.getProductName());
+        rabbitTemplate.convertAndSend(exchangeName, routingKey, event);
         return NotificationResponse.queued();
     }
 }

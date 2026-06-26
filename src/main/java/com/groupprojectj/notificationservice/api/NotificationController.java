@@ -1,6 +1,6 @@
 package com.groupprojectj.notificationservice.api;
 
-import com.groupprojectj.notificationservice.model.NotificationRequest;
+import com.groupprojectj.notificationservice.DTO.NotificationEvent;
 import com.groupprojectj.notificationservice.model.NotificationResponse;
 import com.groupprojectj.notificationservice.service.NotificationService;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ public class NotificationController {
     }
 
     @PostMapping
-    public ResponseEntity<NotificationResponse> createNotification(@RequestBody NotificationRequest request) {
-        return ResponseEntity.accepted().body(notificationService.send(request));
+    public ResponseEntity<NotificationResponse> createNotification(@RequestBody NotificationEvent event) {
+        return ResponseEntity.accepted().body(notificationService.send(event));
     }
 }
