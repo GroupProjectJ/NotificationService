@@ -39,7 +39,7 @@ mvn test
 
 Default settings live in `src/main/resources/application.yml`.
 
-- Application port: `8080`
+- Application port: `9000`
 - RabbitMQ host: `localhost`
 - RabbitMQ port: `5672`
 - RabbitMQ username/password: `guest` / `guest`
