@@ -12,7 +12,7 @@ NotificationService is a Spring Boot application that accepts order-related noti
 ## Requirements
 
 - Java 17
-- Maven
+- Maven is bundled through the Maven Wrapper, so you do not need a local Maven install
 - RabbitMQ running on `localhost:5672`
 
 ## Run locally
@@ -26,13 +26,19 @@ docker compose up -d
 Then start the application:
 
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
+```
+
+On Windows, use:
+
+```powershell
+.\mvnw.cmd spring-boot:run
 ```
 
 You can also run the test suite first:
 
 ```bash
-mvn test
+./mvnw test
 ```
 
 ## Configuration
@@ -105,7 +111,7 @@ Example response:
 Run the application tests with:
 
 ```bash
-mvn test
+./mvnw test
 ```
 
 The current test suite only verifies that the Spring application context starts successfully.
