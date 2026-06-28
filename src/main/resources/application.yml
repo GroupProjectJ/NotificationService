@@ -14,3 +14,16 @@ notification:
   rabbit:
     exchange: notification.direct.exchange
     routing-key: notification.created
+
+logging:
+  level:
+    root: INFO
+    com.groupprojectj.notificationservice: DEBUG
+    org.springframework.amqp: INFO
+
+  file:
+    name: logs/notification-service.log
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
